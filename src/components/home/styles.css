@@ -1,0 +1,97 @@
+@font-face {
+  font-family: "Maravilla";
+  src: url("/assets/fonts/DIOGENES.ttf");
+}
+
+.headerContainer {
+  display: flex;
+  min-height: 100vh;
+}
+
+.headerContainer > div {
+  width: 50%;
+}
+
+.headerContainer > div:first-child {
+  background-size: contain;
+  background-image: url("/assets/images/profile_photo.jpg");
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.headerContainer .slider {
+  background-color: #593119;
+  color: white;
+}
+
+.slider h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  font-family: "Maravilla", serif;
+  text-transform: uppercase;
+}
+
+.sliderContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.sliderContainer > div {
+  width: 80%;
+  align-self: center;
+}
+
+.slider {
+  display: grid;
+  align-content: center;
+}
+
+.subtitle {
+  display: flex;
+  gap: 0.5rem;
+  text-transform: uppercase;
+  font-size: 1rem;
+}
+
+.rrss {
+  position: relative;
+  padding: 2rem;
+  font-size: 30px;
+  display: flex;
+  gap: 1rem;
+
+  height: 3rem;
+}
+
+.rrss > a:hover {
+  transition: all 0.3s ease;
+  font-size: 120%;
+}
+
+.rrss > .phone {
+  font-size: 1.5rem;
+  margin-top: 3px;
+}
+@media screen and (max-width: 768px) {
+  .headerContainer {
+    flex-direction: column;
+  }
+  .headerContainer > div {
+    width: 100%;
+  }
+  .headerContainer > div:first-child {
+    background-size: 300;
+    height: 40vh;
+    background-position-x: 10%;
+    background-position-y: 36%;
+  }
+
+  .sliderContainer {
+    padding-top: 5rem;
+  }
+  .slider {
+    height: 60vh;
+  }
+}

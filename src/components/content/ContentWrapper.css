@@ -1,0 +1,8 @@
+.bodyWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.contentWrapper {
+  width: 80%;
+}
