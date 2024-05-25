@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import PropTypes from "prop-types";
+import "./article.css";
+
 const S = {
   ArticleWrapper: styled.div`
     width: 100%;
@@ -30,34 +32,50 @@ const S = {
   `,
   ButtonWrapper: styled.div`
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     padding: 2em;
   `,
   Button: styled.button`
     background-color: inherit;
-    color: #593119;
-    border: 1px solid #593119;
-    padding: 1em 2em;
-    border-radius: 0.5em;
+    color: black;
+    padding: 0.5em 1em;
     font-size: 1.5em;
     font-weight: 600;
+    text-decoration: underline;
     cursor: pointer;
+    &:hover {
+      font-weight: 700;
+    }
   `,
+  Date: styled.span`
+    font-size: 0.8em;
+    font-weight: 600;
+    padding: 1em;`
 };
 
 export default function Article({article}) {
 
+  const handleClick = (url) => {
+    const link = document.createElement('a')
+    link.href = `/assets/periodismo/${url}`
+    link.target = '_blank'
+    link.rel = 'noopener noreferrer'
+    link.click()
+  }
+
+
   return (
     <S.ArticleWrapper>
       <S.ArticleImage>
-        <img src={article.foto} alt={article.titulo} />
+        <img src={`/assets/periodismo/${article.image}`} alt={article.title} />
       </S.ArticleImage>
       <S.ArticleText>
-        <h1>{article.titulo}</h1>
-        <p>{article.texto}</p>
+        <h1 className="article-title">{article.title}</h1>
+        <p className="article-description">{article.description}</p>
       </S.ArticleText>
       <S.ButtonWrapper>
-        <S.Button>Leer Más</S.Button>
+        <S.Date>{article.date.toLocaleDateString()}</S.Date>
+        <S.Button onClick={()=>handleClick(article.file)}>Leer Más</S.Button>
       </S.ButtonWrapper>
     </S.ArticleWrapper>
   );
@@ -65,8 +83,10 @@ export default function Article({article}) {
 
 Article.propTypes = {
   article: PropTypes.shape({
-    titulo: PropTypes.string.isRequired,
-    texto: PropTypes.string.isRequired,
-    foto: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    file: PropTypes.string.isRequired,
+    date: PropTypes.instanceOf(Date)
   }).isRequired,
 };
