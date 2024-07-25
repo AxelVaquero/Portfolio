@@ -6,6 +6,7 @@ import HomeComponent from "./components/home/HomeComponent.jsx";
 import Periodismo from "./pages/Periodismo.jsx";
 import Historia from "./pages/Historia.jsx";
 import Fotografia from "./pages/Fotografia.jsx";
+import Audiovisual from "./pages/Audiovisual.jsx";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
     path: "/fotografia",
     element: <Fotografia />,
   },
+  {
+    path: "/audiovisual",
+    element: <Audiovisual />
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

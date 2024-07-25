@@ -9,6 +9,7 @@ export default function Menu() {
     { name: "Periodismo", path: "/periodismo" },
     { name: "Historia", path: "/historia" },
     { name: "Fotografía", path: "/fotografia" },
+    { name: "Audiovisual", path: "/audiovisual" },
   ];
   const onClick = () => {
     setActive(!active);

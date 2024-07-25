@@ -1,7 +1,7 @@
 import Menu from "../menu/Menu";
 import "./styles.css";
 import Typewriter from "typewriter-effect";
-import { FaLinkedinIn, FaPhone, FaWhatsapp } from "react-icons/fa6";
+import { FaLinkedinIn, FaPhone, FaWhatsapp, FaInstagram, FaTiktok } from "react-icons/fa6";
 
 export default function HomeComponent() {
   return (
@@ -34,6 +34,12 @@ export default function HomeComponent() {
               </a>
               <a href="">
                 <FaWhatsapp />
+              </a>
+              <a href="">
+                <FaInstagram />
+              </a>
+              <a href="">
+                <FaTiktok />
               </a>
             </div>
           </div>
