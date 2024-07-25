@@ -34,13 +34,12 @@ export default function Periodismo() {
       title: article.title,
       image: article.image,
       description: article.description,
-      date: getDate(article.image)
+      date: getDate(article.image),
+      file: article.file
     } 
   }).sort((a, b) => {
     return b.date - a.date;
   });
-
-
 
 
   return (
