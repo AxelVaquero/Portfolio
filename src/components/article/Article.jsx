@@ -53,21 +53,21 @@ const S = {
     padding: 1em;`
 };
 
-export default function Article({article}) {
+export default function Article({article, type}) {
 
   const handleClick = (url) => {
     const link = document.createElement('a')
-    link.href = `/assets/periodismo/${url}`
+    link.href = `/assets/${type === 'historia' ? 'historia' : 'periodismo'}/${url}`
     link.target = '_blank'
     link.rel = 'noopener noreferrer'
     link.click()
   }
 
-
+  console.log(article);
   return (
     <S.ArticleWrapper>
       <S.ArticleImage>
-        <img src={`/assets/periodismo/${article.image}`} alt={article.title} />
+        <img src={`/assets/${type === 'historia' ? 'historia' : 'periodismo'}/${article.image}`} alt={article.title} />
       </S.ArticleImage>
       <S.ArticleText>
         <h1 className="article-title">{article.title}</h1>
@@ -87,6 +87,7 @@ Article.propTypes = {
     description: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
     file: PropTypes.string.isRequired,
-    date: PropTypes.instanceOf(Date)
+    date: PropTypes.instanceOf(Date),
   }).isRequired,
+  type: PropTypes.string
 };

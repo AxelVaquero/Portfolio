@@ -1,7 +1,7 @@
 import Menu from "../menu/Menu";
 import "./styles.css";
 import Typewriter from "typewriter-effect";
-import { FaLinkedinIn, FaPhone, FaWhatsapp, FaInstagram, FaTiktok } from "react-icons/fa6";
+import { FaLinkedinIn, FaInstagram, FaTiktok } from "react-icons/fa6";
 
 export default function HomeComponent() {
   return (
@@ -26,19 +26,13 @@ export default function HomeComponent() {
               />
             </div>
             <div className="rrss">
-              <a href="">
+              <a href="https://www.linkedin.com/in/axel-vaquero-300637203/">
                 <FaLinkedinIn />
               </a>
-              <a href="" className="phone">
-                <FaPhone />
-              </a>
-              <a href="">
-                <FaWhatsapp />
-              </a>
-              <a href="">
+              <a href="https://www.instagram.com/escritura.cutreiforme/">
                 <FaInstagram />
               </a>
-              <a href="">
+              <a href="https://www.tiktok.com/@escritura.cutreiforme">
                 <FaTiktok />
               </a>
             </div>
