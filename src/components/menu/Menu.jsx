@@ -5,11 +5,11 @@ import Hamburger from "hamburger-react";
 export default function Menu() {
   const [active, setActive] = useState(false);
   const menuItems = [
-    { name: "Inicio", path: "/" },
-    { name: "Periodismo", path: "/periodismo" },
-    { name: "Historia", path: "/historia" },
-    { name: "Fotografía", path: "/fotografia" },
-    { name: "Audiovisual", path: "/audiovisual" },
+    { name: "Inicio", path: "/Portfolio/" },
+    { name: "Periodismo", path: "/Portfolio/periodismo" },
+    { name: "Historia", path: "/Portfolio/historia" },
+    { name: "Fotografía", path: "/Portfolio/fotografia" },
+    { name: "Audiovisual", path: "/Portfolio/audiovisual" },
   ];
   const onClick = () => {
     setActive(!active);

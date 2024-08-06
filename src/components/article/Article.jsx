@@ -67,7 +67,7 @@ export default function Article({article, type}) {
   return (
     <S.ArticleWrapper>
       <S.ArticleImage>
-        <img src={`/assets/${type === 'historia' ? 'historia' : 'periodismo'}/${article.image}`} alt={article.title} />
+        <img src={`/Portfolio/assets/${type === 'historia' ? 'historia' : 'periodismo'}/${article.image}`} alt={article.title} />
       </S.ArticleImage>
       <S.ArticleText>
         <h1 className="article-title">{article.title}</h1>

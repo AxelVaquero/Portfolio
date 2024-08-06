@@ -110,13 +110,13 @@ export default function Fotografia() {
   const atenasGallery = atenas.map((image) => {
     if (image.includes("vertical")) {
       return {
-        src: image.replace("/public", ""),
+        src: image.replace("/public", "/Portfolio"),
         width: 212,
         height: 320,
       };
     }
     return {
-      src: image.replace("/public", ""),
+      src: image.replace("/public", "/Portfolio"),
       width: 320,
       height: 212,
     };
@@ -124,7 +124,7 @@ export default function Fotografia() {
 
   const delfosGallery = delfos.map((image) => {
     return {
-      src: image.replace("/public", ""),
+      src: image.replace("/public", "/Portfolio"),
       width: 320,
       height: 212,
     };
@@ -132,7 +132,7 @@ export default function Fotografia() {
 
   const siciliaGallery = sicilia.map((image) => {
     return {
-      src: image.replace("/public", ""),
+      src: image.replace("/public", "/Portfolio"),
       width: 320,
       height: 212,
     };
@@ -140,7 +140,7 @@ export default function Fotografia() {
 
   const camargaGallery = camarga.map((image) => {
     return {
-      src: image.replace("/public", ""),
+      src: image.replace("/public", "/Portfolio"),
       width: 320,
       height: 212,
     };
@@ -148,7 +148,7 @@ export default function Fotografia() {
 
   const patrimonioAndaluzGallery = patrimonioAndaluz.map((image) => {
     return {
-      src: image.replace("/public", ""),
+      src: image.replace("/public", "/Portfolio"),
       width: 320,
       height: 212,
     };
@@ -197,7 +197,7 @@ export default function Fotografia() {
         title="Fotografía"
         icon={<BsCameraFill />}
         style={{
-          backgroundImage: `url("/assets/images/gallery/tourDeGrecia/atenas/14.JPG")`,
+          backgroundImage: `url("/Portfolio/assets/images/gallery/tourDeGrecia/atenas/14.JPG")`,
           backgroundSize: "cover",
           backgroundPositionY: "44%",
         }}

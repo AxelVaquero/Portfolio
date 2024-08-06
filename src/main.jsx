@@ -10,23 +10,23 @@ import Audiovisual from "./pages/Audiovisual.jsx";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/Portfolio/",
     element: <HomeComponent />,
   },
   {
-    path: "/periodismo",
+    path: "/Portfolio/periodismo",
     element: <Periodismo />,
   },
   {
-    path: "/historia",
+    path: "/Portfolio/historia",
     element: <Historia />,
   },
   {
-    path: "/fotografia",
+    path: "/Portfolio/fotografia",
     element: <Fotografia />,
   },
   {
-    path: "/audiovisual",
+    path: "/Portfolio/audiovisual",
     element: <Audiovisual />
   }
 ]);
