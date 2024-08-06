@@ -183,11 +183,9 @@ export default function Fotografia() {
   ];
   const [index, setIndex] = useState(-1);
   const [selectedGallery, setSelectedGallery] = useState(-1);
-  console.log(index);
   const handleClick = (index, galleryIndex) => {
     setIndex(index);
     setSelectedGallery(galleryIndex);
-    console.log(index, galleryIndex);
   };
   return (
     <S.ContentWrapper>

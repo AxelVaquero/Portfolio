@@ -63,7 +63,6 @@ export default function Article({article, type}) {
     link.click()
   }
 
-  console.log(article);
   return (
     <S.ArticleWrapper>
       <S.ArticleImage>
