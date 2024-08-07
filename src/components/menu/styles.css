@@ -98,7 +98,7 @@ nav > ul > li {
     color: white;
   }
   .mobileMenuItems {
-    position: absolute;
+    position: fixed;
     background-color: #593119;
     width: 100%;
     color: white;
