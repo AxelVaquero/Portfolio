@@ -206,7 +206,7 @@ export default function Fotografia() {
         title="Fotografía"
         icon={<BsCameraFill />}
         style={{
-          backgroundImage: `url("/Portfolio/assets/images/gallery/tourDeGrecia/atenas/14.JPG")`,
+          backgroundImage: `url("/Portfolio/assets/images/gallery/tourDeGrecia/atenas/14.webp")`,
           backgroundSize: "cover",
           backgroundPositionY: "44%",
         }}
