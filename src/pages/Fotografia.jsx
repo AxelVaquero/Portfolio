@@ -13,6 +13,7 @@ import { GiItalia } from "react-icons/gi";
 import { GiFrance } from "react-icons/gi";
 import { GiGreekTemple } from "react-icons/gi";
 import { GiGreekSphinx } from "react-icons/gi";
+import { useEffect } from "react";
 const S = {
   GalleryWrapper: styled.div`
     margin-top: 1em;
@@ -58,6 +59,9 @@ const S = {
 };
 
 export default function Fotografia() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const camarga = Object.keys(
     import.meta.glob("/public/assets/images/gallery/camarga/*", {
       as: "url",

@@ -5,6 +5,7 @@ import Menu from "../components/menu/Menu";
 import "./common.css";
 import { FaVideo } from "react-icons/fa";
 import styled from "styled-components";
+import { useEffect } from "react";
 
 import data from '../../public/api/Audiovisual.json';
 import moment from "moment";
@@ -25,6 +26,10 @@ const S = {
 };
 
 export default function Audiovisual() {
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const articles = data.map((article) => {
     return {

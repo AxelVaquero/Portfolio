@@ -6,6 +6,7 @@ import styled from "styled-components";
 import Article from "../components/article/Article";
 import ContentWrapper from "../components/content/ContentWrapper";
 import data from '../../public/api/Historia.json';
+import { useEffect } from "react";
 
 const S = {
   ArticleWrapper: styled.div`
@@ -21,6 +22,9 @@ const S = {
   `,
 };
 export default function Historia() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const getDate = (filename) => {
     const date = filename.split('_')
     return new Date(`${date[1]}/${date[0]}/${date[2]}`);

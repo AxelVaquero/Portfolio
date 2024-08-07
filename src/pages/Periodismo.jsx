@@ -5,6 +5,7 @@ import Menu from "../components/menu/Menu";
 import "./common.css";
 import { FaRegNewspaper } from "react-icons/fa";
 import styled from "styled-components";
+import { useEffect } from "react";
 
 import data from '../../public/api/NotasArticulos.json';
 
@@ -40,6 +41,10 @@ export default function Periodismo() {
   }).sort((a, b) => {
     return b.date - a.date;
   });
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
 
   return (
