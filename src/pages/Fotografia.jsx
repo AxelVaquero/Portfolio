@@ -147,6 +147,13 @@ export default function Fotografia() {
   });
 
   const patrimonioAndaluzGallery = patrimonioAndaluz.map((image) => {
+    if (image.includes("vertical")) {
+      return {
+        src: image.replace("/public", "/Portfolio"),
+        width: 212,
+        height: 320,
+      };
+    }
     return {
       src: image.replace("/public", "/Portfolio"),
       width: 320,
