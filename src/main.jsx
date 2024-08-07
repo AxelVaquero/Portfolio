@@ -1,38 +1,38 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { RouterProvider, createHashRouter } from "react-router-dom";
 import HomeComponent from "./components/home/HomeComponent.jsx";
 import Periodismo from "./pages/Periodismo.jsx";
 import Historia from "./pages/Historia.jsx";
 import Fotografia from "./pages/Fotografia.jsx";
 import Audiovisual from "./pages/Audiovisual.jsx";
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
-    path: "/Portfolio/",
+    path: "/",
     element: <HomeComponent />,
   },
   {
-    path: "/Portfolio/periodismo",
+    path: "/periodismo",
     element: <Periodismo />,
   },
   {
-    path: "/Portfolio/historia",
+    path: "/historia",
     element: <Historia />,
   },
   {
-    path: "/Portfolio/fotografia",
+    path: "/fotografia",
     element: <Fotografia />,
   },
   {
-    path: "/Portfolio/audiovisual",
+    path: "/audiovisual",
     element: <Audiovisual />
   }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <RouterProvider router={router} basename="Portfolio"/>
   </React.StrictMode>
 );
