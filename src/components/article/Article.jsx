@@ -57,7 +57,7 @@ export default function Article({article, type}) {
 
   const handleClick = (url) => {
     const link = document.createElement('a')
-    link.href = `/assets/${type === 'historia' ? 'historia' : 'periodismo'}/${url}`
+    link.href = `/Portfolio/assets/${type === 'historia' ? 'historia' : 'periodismo'}/${url}`
     link.target = '_blank'
     link.rel = 'noopener noreferrer'
     link.click()
