@@ -11,9 +11,7 @@ export default function Menu() {
     { name: "Fotografía", path: "/fotografia" },
     { name: "Audiovisual", path: "/audiovisual" },
   ];
-  const onClick = () => {
-    setActive(!active);
-  };
+
   return (
     <div className="navMenu">
       <nav className="desktopMenu">
@@ -34,11 +32,9 @@ export default function Menu() {
           })}
         </ul>
       </nav>
-      <button onClick={onClick}>
-        <div className="mobileMenu">
-          <Hamburger toggled={active} toggle={setActive} size={20} />
-        </div>
-      </button>
+      <div className="mobileMenu">
+        <Hamburger toggled={active} toggle={setActive} size={20} />
+      </div>
 
       <div className={`mobileHeader ${active ? "open" : "closed"}`}>
         <div className="mobileMenuItems">

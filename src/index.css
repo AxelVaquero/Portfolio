@@ -1,14 +1,37 @@
 @import url("https://fonts.googleapis.com/css2?family=GFS+Neohellenic:ital,wght@0,400;0,700;1,400;1,700&family=Mali:ital,wght@1,600&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
+:root {
+  /* Color Palette */
+  --primary-color: #593119;
+  --secondary-color: #bb8c6f;
+  --background-color: #fdfbf7;
+  --text-color: #333;
+  --white: #ffffff;
+  
+  /* Typography */
+  --font-main: "GFS Neohellenic", serif;
+  --font-display: "Maravilla", serif;
+  --font-sans: "Roboto", sans-serif;
+}
+
 * {
   margin: 0;
   padding: 0;
-  font-family: "GFS Neohellenic", serif;
+  box-sizing: border-box;
+  font-family: var(--font-main);
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
 * > a {
   text-decoration: none;
   color: inherit;
+  transition: color 0.3s ease;
 }
 
 * > button {
@@ -19,4 +42,13 @@
   font: inherit;
   cursor: pointer;
   outline: inherit;
+  transition: opacity 0.3s ease;
+}
+
+* > button:hover {
+  opacity: 0.8;
+}
+
+html {
+  scroll-behavior: smooth;
 }

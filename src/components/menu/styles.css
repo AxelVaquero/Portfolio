@@ -1,4 +1,4 @@
-nav > ul {
+nav>ul {
   display: flex;
   justify-content: center;
   gap: 1em;
@@ -20,7 +20,7 @@ nav {
   background-color: whitesmoke;
 }
 
-nav > ul > li {
+nav>ul>li {
   font-size: 1.4rem;
   text-transform: uppercase;
   padding: 0.5rem;
@@ -33,6 +33,7 @@ nav > ul > li {
   width: 100%;
   position: absolute;
   right: 0;
+  z-index: 10;
 }
 
 .navMenu .active {
@@ -59,6 +60,7 @@ nav > ul > li {
   background-color: #593119;
   color: white;
 }
+
 .mobileHeader.closed {
   position: absolute;
   width: 100%;
@@ -69,6 +71,7 @@ nav > ul > li {
 
   top: 0;
 }
+
 .mobileMenuItems {
   top: 0;
 }
@@ -97,6 +100,7 @@ nav > ul > li {
   .mobileMenu {
     color: white;
   }
+
   .mobileMenuItems {
     position: fixed;
     background-color: #593119;
@@ -105,7 +109,7 @@ nav > ul > li {
     z-index: 99;
   }
 
-  .mobileMenuItems > ul {
+  .mobileMenuItems>ul {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -115,7 +119,7 @@ nav > ul > li {
     list-style: none;
   }
 
-  .mobileMenuItems > ul > li {
+  .mobileMenuItems>ul>li {
     font-size: 1.2rem;
     text-transform: uppercase;
 
