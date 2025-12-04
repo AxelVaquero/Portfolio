@@ -3,7 +3,7 @@ import ContentWrapper from "../components/content/ContentWrapper";
 import HeaderSection from "../components/headerSection/HeaderSection";
 import Menu from "../components/menu/Menu";
 import "./common.css";
-import { FaVideo } from "react-icons/fa";
+
 import styled from "styled-components";
 import { useEffect } from "react";
 
@@ -16,9 +16,9 @@ const S = {
     margin-top: 3rem;
     display: grid;
     gap: 2em;
-    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     justify-items: center;
-    align-items: center;
+    align-items: stretch;
     @media (max-width: 768px) {
       grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
     }
@@ -38,7 +38,7 @@ export default function Audiovisual() {
       date: new Date(moment(article.date, "DD/MM/YYYY").format('L')),
       file: article.file,
       url: article.href
-    } 
+    }
   }).sort((a, b) => {
     return b.date - a.date;
   });
@@ -53,7 +53,7 @@ export default function Audiovisual() {
       <HeaderSection
         title="Audiovisual"
         backgroundColor="#593119"
-        icon={<FaVideo />}
+
       />
       <ContentWrapper>
         <S.ArticleWrapper>

@@ -3,7 +3,7 @@ import ContentWrapper from "../components/content/ContentWrapper";
 import HeaderSection from "../components/headerSection/HeaderSection";
 import Menu from "../components/menu/Menu";
 import "./common.css";
-import { FaRegNewspaper } from "react-icons/fa";
+
 import styled from "styled-components";
 import { useEffect } from "react";
 
@@ -15,9 +15,9 @@ const S = {
     margin-top: 3rem;
     display: grid;
     gap: 2em;
-    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     justify-items: center;
-    align-items: center;
+    align-items: stretch;
     @media (max-width: 768px) {
       grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
     }
@@ -37,7 +37,7 @@ export default function Periodismo() {
       description: article.description,
       date: getDate(article.image),
       file: article.file
-    } 
+    }
   }).sort((a, b) => {
     return b.date - a.date;
   });
@@ -54,7 +54,7 @@ export default function Periodismo() {
       <HeaderSection
         title="Periodismo"
         backgroundColor="#593119"
-        icon={<FaRegNewspaper />}
+
       />
       <ContentWrapper>
         <S.ArticleWrapper>

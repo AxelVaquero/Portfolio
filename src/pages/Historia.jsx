@@ -1,7 +1,7 @@
 import HeaderSection from "../components/headerSection/HeaderSection";
 import Menu from "../components/menu/Menu";
 import "./common.css";
-import { GiSpartan } from "react-icons/gi";
+
 import styled from "styled-components";
 import Article from "../components/article/Article";
 import ContentWrapper from "../components/content/ContentWrapper";
@@ -13,9 +13,9 @@ const S = {
     margin-top: 3rem;
     display: grid;
     gap: 2em;
-    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     justify-items: center;
-    align-items: center;
+    align-items: stretch;
     @media (max-width: 768px) {
       grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
     }
@@ -37,7 +37,7 @@ export default function Historia() {
       description: article.description,
       date: getDate(article.image),
       file: article.file
-    } 
+    }
   }).sort((a, b) => {
     return b.date - a.date;
   });
@@ -48,12 +48,12 @@ export default function Historia() {
       <HeaderSection
         title="Historia"
         backgroundColor="#593119"
-        icon={<GiSpartan />}
+
       />
       <ContentWrapper>
         <S.ArticleWrapper>
           {articles.map((article, key) => (
-            <Article article={article} key={key} type="historia"/>
+            <Article article={article} key={key} type="historia" />
           ))}
         </S.ArticleWrapper>
       </ContentWrapper>
