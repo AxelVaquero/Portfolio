@@ -7,7 +7,7 @@ import "./common.css";
 import styled from "styled-components";
 import { useEffect } from "react";
 
-import data from '../../public/api/NotasArticulos.json';
+import data from '../api/NotasArticulos.json';
 
 
 const S = {

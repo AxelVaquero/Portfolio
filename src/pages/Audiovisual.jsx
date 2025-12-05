@@ -7,7 +7,7 @@ import "./common.css";
 import styled from "styled-components";
 import { useEffect } from "react";
 
-import data from '../../public/api/Audiovisual.json';
+import data from '../api/Audiovisual.json';
 import moment from "moment";
 
 
@@ -37,7 +37,7 @@ export default function Audiovisual() {
       description: article.description,
       date: new Date(moment(article.date, "DD/MM/YYYY").format('L')),
       file: article.file,
-      url: article.href
+      href: article.href
     }
   }).sort((a, b) => {
     return b.date - a.date;

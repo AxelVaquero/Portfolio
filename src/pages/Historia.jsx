@@ -5,7 +5,7 @@ import "./common.css";
 import styled from "styled-components";
 import Article from "../components/article/Article";
 import ContentWrapper from "../components/content/ContentWrapper";
-import data from '../../public/api/Historia.json';
+import data from '../api/Historia.json';
 import { useEffect } from "react";
 
 const S = {

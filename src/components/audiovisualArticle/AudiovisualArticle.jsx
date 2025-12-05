@@ -93,11 +93,10 @@ const S = {
 
 export default function AudiovisualArticle({ article }) {
 
-
   return (
     <S.ArticleWrapper>
       <S.ArticleImage>
-        <ReactPlayer url={article.url} width="100%" />
+        <ReactPlayer url={article.href} width="100%" />
       </S.ArticleImage>
       <S.ArticleText>
         <h1 className="article-title">{article.title}</h1>
@@ -114,8 +113,7 @@ AudiovisualArticle.propTypes = {
   article: PropTypes.shape({
     title: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
-    url: PropTypes.string.isRequired,
-    file: PropTypes.string.isRequired,
+    href: PropTypes.string.isRequired,
     date: PropTypes.instanceOf(Date)
   }).isRequired,
 };
