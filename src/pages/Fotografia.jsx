@@ -177,19 +177,22 @@ export default function Fotografia() {
       images: delfosGallery,
     },
   ];
+
+  const [activeCategory, setActiveCategory] = useState("Patrimonio Andaluz");
   const [index, setIndex] = useState(-1);
-  const [selectedGallery, setSelectedGallery] = useState(-1);
-  const handleClick = (index, galleryIndex) => {
+
+  const handleClick = (index) => {
     setIndex(index);
-    setSelectedGallery(galleryIndex);
   };
+
+  const activeGalleryItem = gallery.find(item => item.title === activeCategory);
+
   return (
     <S.ContentWrapper>
       <Menu />
 
       <HeaderSection
         title="Fotografía"
-
         style={{
           backgroundImage: `url("/Portfolio/assets/images/gallery/tourDeGrecia/atenas/14.webp")`,
           backgroundSize: "cover",
@@ -197,34 +200,58 @@ export default function Fotografia() {
         }}
       />
       <ContentWrapper>
-        <>
-          {gallery.map((item, i) => {
-            return (
-              <S.GalleryWrapper key={i}>
-                <S.titleWrapper>
-                  <S.h2>{item.title}</S.h2>
-                </S.titleWrapper>
-                <PhotoAlbum
-                  layout="rows"
-                  photos={item.images}
-                  onClick={({ index }) => handleClick(index, i)}
-                />
-                <Lightbox
-                  slides={item.images.map((image) => {
-                    return { src: image.src };
-                  })}
-                  imageFit="contain"
-                  open={index >= 0 && selectedGallery === i}
-                  index={index}
-                  close={() => {
-                    setIndex(-1);
-                    setSelectedGallery(-1);
-                  }}
-                />
-              </S.GalleryWrapper>
-            );
-          })}
-        </>
+        <S.GalleryWrapper>
+          <div style={{
+            display: 'flex',
+            justifyContent: 'center',
+            flexWrap: 'wrap',
+            gap: '1rem',
+            marginBottom: '3rem',
+            marginTop: '2rem'
+          }}>
+            {gallery.map((item) => (
+              <button
+                key={item.title}
+                onClick={() => setActiveCategory(item.title)}
+                style={{
+                  padding: '0.8rem 1.5rem',
+                  backgroundColor: activeCategory === item.title ? 'var(--secondary-color)' : 'transparent',
+                  color: activeCategory === item.title ? '#fff' : 'var(--primary-color)',
+                  border: '1px solid var(--secondary-color)',
+                  cursor: 'pointer',
+                  fontFamily: 'var(--font-display)',
+                  textTransform: 'uppercase',
+                  fontSize: '1rem',
+                  letterSpacing: '1px',
+                  transition: 'all 0.3s ease'
+                }}
+              >
+                {item.title}
+              </button>
+            ))}
+          </div>
+
+          <S.titleWrapper>
+            <S.h2>{activeGalleryItem?.title}</S.h2>
+          </S.titleWrapper>
+
+          {activeGalleryItem && (
+            <>
+              <PhotoAlbum
+                layout="rows"
+                photos={activeGalleryItem.images}
+                onClick={({ index }) => handleClick(index)}
+              />
+              <Lightbox
+                slides={activeGalleryItem.images.map((image) => ({ src: image.src }))}
+                imageFit="contain"
+                open={index >= 0}
+                index={index}
+                close={() => setIndex(-1)}
+              />
+            </>
+          )}
+        </S.GalleryWrapper>
       </ContentWrapper>
     </S.ContentWrapper>
   );
