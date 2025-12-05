@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import PropTypes from "prop-types";
 import "./article.css";
+import SoundCloudPlayer from "./SoundCloudPlayer";
 import ReactPlayer from "react-player";
 
 const S = {
@@ -92,11 +93,16 @@ const S = {
 };
 
 export default function AudiovisualArticle({ article }) {
+  const isSoundCloud = article.href.includes("soundcloud.com");
 
   return (
     <S.ArticleWrapper>
       <S.ArticleImage>
-        <ReactPlayer url={article.href} width="100%" />
+        {isSoundCloud ? (
+          <SoundCloudPlayer url={article.href} />
+        ) : (
+          <ReactPlayer src={article.href} width="100%" />
+        )}
       </S.ArticleImage>
       <S.ArticleText>
         <h1 className="article-title">{article.title}</h1>

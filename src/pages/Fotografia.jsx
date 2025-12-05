@@ -3,7 +3,8 @@ import HeaderSection from "../components/headerSection/HeaderSection";
 import Menu from "../components/menu/Menu";
 import "./common.css";
 
-import { Gallery } from "react-grid-gallery";
+import PhotoAlbum from "react-photo-album";
+import "react-photo-album/rows.css";
 import styled from "styled-components";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
@@ -203,16 +204,10 @@ export default function Fotografia() {
                 <S.titleWrapper>
                   <S.h2>{item.title}</S.h2>
                 </S.titleWrapper>
-                <Gallery
-                  images={item.images}
-                  enableImageSelection={false}
-                  onClick={(index) => handleClick(index, i)}
-                  lazyLoad={true}
-                  tagStyle={{
-                    color: "white",
-                    backgroundColor: "rgb(94, 150, 55)",
-                    padding: "5px",
-                  }}
+                <PhotoAlbum
+                  layout="rows"
+                  photos={item.images}
+                  onClick={({ index }) => handleClick(index, i)}
                 />
                 <Lightbox
                   slides={item.images.map((image) => {
