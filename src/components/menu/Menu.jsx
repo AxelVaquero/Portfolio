@@ -36,7 +36,7 @@ export default function Menu() {
           toggled={active}
           toggle={setActive}
           size={24}
-          color="#593119"
+          color={active ? "#ffffff" : "#593119"}
           label="Show menu"
         />
       </div>
