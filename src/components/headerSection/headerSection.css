@@ -1,7 +1,9 @@
 .header {
   color: var(--white);
-  padding: 3rem 2rem;
-  font-size: 4.5rem;
+  padding: 6rem 2rem;
+  /* More generous padding for a hero feel */
+  /* Fluid typography: scales from 1.2rem at 320px to 5rem at 1600px */
+  font-size: clamp(1.2rem, 5vw + 0.5rem, 5rem);
   font-weight: 700;
   margin-bottom: 2rem;
   width: 100%;
@@ -14,6 +16,9 @@
   word-break: break-word;
   overflow-wrap: break-word;
   text-align: center;
+  /* Subtle gradient overlay for depth */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3));
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .header h1 {
@@ -22,49 +27,56 @@
   position: relative;
   text-align: center;
   margin: 0;
+  line-height: 1.2;
 }
 
 /* Elegant underline */
 .header h1::after {
   content: '';
   position: absolute;
-  bottom: -15px;
+  bottom: -20px;
   left: 50%;
   transform: translateX(-50%);
-  width: 80px;
-  height: 2px;
+  width: 100px;
+  height: 3px;
   background-color: var(--secondary-color);
-  opacity: 0.6;
+  opacity: 0.8;
+  border-radius: 2px;
+  transition: width 0.3s ease;
 }
 
 .wrapper {
   display: flex;
   justify-content: center;
   transition: background-color 0.3s ease;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 15px -1px rgba(0, 0, 0, 0.2);
+  position: relative;
+  overflow: hidden;
+  /* Ensure gradient/content doesn't spill */
 }
 
-@media (max-width: 1024px) {
-  .header {
-    font-size: 3.5rem;
-  }
-}
-
+/* Responsive adjustments mainly for padding/spacing, font-size is handled by clamp */
 @media (max-width: 768px) {
   .header {
-    font-size: 2.2rem;
-    padding: 3rem 1rem;
+    padding: 4rem 1rem;
     letter-spacing: 2px;
   }
 
   .header h1::after {
     width: 60px;
-    bottom: -10px;
+    bottom: -15px;
   }
 }
 
 @media (max-width: 480px) {
   .header {
-    font-size: 2rem;
+    padding: 3rem 1rem;
+  }
+}
+
+@media (max-width: 350px) {
+  .header {
+    letter-spacing: 1px;
+    padding: 2rem 0.5rem;
   }
 }
