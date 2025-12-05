@@ -11,34 +11,39 @@ import { useState } from "react";
 import { useEffect } from "react";
 const S = {
   GalleryWrapper: styled.div`
-    margin-top: 1em;
-    padding: 1em;
+    margin-bottom: 6rem;
+    padding: 0 1rem;
   `,
   ContentWrapper: styled.div`
-    background-color: #f1eaea;
+    background-color: var(--background-color);
+    min-height: 100vh;
   `,
-  h1: styled.h1`
-    text-align: center;
-    font-size: 5.5em;
-    font-weight: 600;
-    margin-bottom: 0.5em;
-    @media (max-width: 768px) {
-      font-size: 2em;
-    }
-  `,
-
-  title: styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row-reverse;
-    @media (max-width: 768px) {
-    }
-  `,
+  // Mimic HeaderSection style but smaller for sub-headers
   titleWrapper: styled.div`
     display: flex;
-    position: relative;
     justify-content: center;
+    margin-bottom: 3rem;
+    position: relative;
+  `,
+  h2: styled.h2`
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    color: var(--primary-color);
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: normal;
+    margin: 0;
+    position: relative;
+    
+    &::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 2px;
+      background-color: var(--secondary-color);
+      margin: 1rem auto 0;
+      opacity: 0.7;
+    }
   `,
 };
 
@@ -196,9 +201,7 @@ export default function Fotografia() {
             return (
               <S.GalleryWrapper key={i}>
                 <S.titleWrapper>
-                  <S.title>
-                    <S.h1>{item.title}</S.h1>
-                  </S.title>
+                  <S.h2>{item.title}</S.h2>
                 </S.titleWrapper>
                 <Gallery
                   images={item.images}

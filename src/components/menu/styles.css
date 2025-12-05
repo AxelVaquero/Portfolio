@@ -1,86 +1,160 @@
-nav>ul {
-  display: flex;
-  justify-content: center;
-  gap: 1em;
-  align-items: center;
-  padding: 0 20px;
-  height: 100%;
-  list-style: none;
-}
-
+/* Global Navigation Styles */
 nav {
+  width: 100%;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-family: "roboto";
-  font-size: 1.2rem;
-  font-weight: 500;
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
   text-transform: uppercase;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  background-color: whitesmoke;
-}
-
-nav>ul>li {
-  font-size: 1.4rem;
-  text-transform: uppercase;
-  padding: 0.5rem;
-
-  cursor: pointer;
+  letter-spacing: 1px;
+  background: rgba(253, 251, 247, 0.85);
+  /* Semi-transparent background */
+  backdrop-filter: blur(10px);
+  /* Glassmorphism effect */
+  -webkit-backdrop-filter: blur(10px);
+  position: fixed;
+  /* Fix to top */
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
+  height: 80px;
+  /* Fixed height for consistency */
 }
 
 .navMenu {
   width: 100%;
+}
+
+/* Desktop Menu List */
+nav>ul {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  /* Increased spacing */
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  height: 100%;
+}
+
+/* Menu Items */
+nav>ul>li {
+  position: relative;
+}
+
+nav>ul>li a {
+  text-decoration: none;
+  color: var(--text-color);
+  padding: 0.5rem 0;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+/* Hover Effect - Elegant Underline */
+nav>ul>li a::after {
+  content: '';
   position: absolute;
-  right: 0;
-  z-index: 10;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background-color: var(--primary-color);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
 }
 
-.navMenu .active {
+nav>ul>li a:hover {
+  color: var(--primary-color);
+}
+
+nav>ul>li a:hover::after {
+  width: 100%;
+}
+
+/* Active State */
+nav>ul>li a.active {
+  color: var(--primary-color);
   font-weight: 700;
-  text-decoration: underline;
 }
 
+nav>ul>li a.active::after {
+  width: 100%;
+}
+
+/* Mobile Menu Trigger */
 .mobileMenu {
   display: none;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1001;
+  color: var(--primary-color);
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  padding: 5px;
+  backdrop-filter: blur(5px);
 }
 
-.mobileHeader.closed .mobileMenuItems {
-  height: 0;
-  display: none;
-}
-
+/* Mobile Header/Drawer */
 .mobileHeader {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: var(--primary-color);
+  z-index: 1000;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
-  padding: 1rem;
-  background-color: #593119;
-  color: white;
+  transform: translateX(100%);
+  /* Hidden by default */
+  transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.mobileHeader.open {
+  transform: translateX(0);
+  /* Slide in */
 }
 
 .mobileHeader.closed {
-  position: absolute;
-  width: 100%;
-  height: 0;
+  transform: translateX(100%);
+}
 
+/* Mobile Menu Items */
+.mobileMenuItems ul {
+  list-style: none;
   padding: 0;
-  margin: 0;
-
-  top: 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
-.mobileMenuItems {
-  top: 0;
+.mobileMenuItems a {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--white);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: color 0.3s ease, transform 0.3s ease;
+  display: block;
 }
 
-.desktopMenu a:hover {
-  color: #593119;
-  transition: all 0.3s ease;
+.mobileMenuItems a:hover,
+.mobileMenuItems a.active {
+  color: var(--secondary-color);
+  transform: scale(1.1);
 }
 
+/* Responsive Breakpoint */
 @media screen and (max-width: 768px) {
   .desktopMenu {
     display: none;
@@ -88,45 +162,9 @@ nav>ul>li {
 
   .mobileMenu {
     display: block;
-    background-color: #593119;
-    position: fixed;
-    right: 5%;
-    top: 5%;
-    font-size: 1.5rem;
-    cursor: pointer;
-    z-index: 100;
   }
 
-  .mobileMenu {
-    color: white;
-  }
-
-  .mobileMenuItems {
-    position: fixed;
-    background-color: #593119;
-    width: 100%;
-    color: white;
-    z-index: 99;
-  }
-
-  .mobileMenuItems>ul {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    padding: 1rem;
-    list-style: none;
-  }
-
-  .mobileMenuItems>ul>li {
-    font-size: 1.2rem;
-    text-transform: uppercase;
-
-    cursor: pointer;
-  }
-
-  .mobileHeader {
-    background-color: #593119;
-  }
+  /* Adjust main content padding to account for fixed header if needed, 
+     but since mobile menu is a drawer, we might not need a fixed header bar on mobile 
+     unless we want the logo there. For now, the hamburger is floating. */
 }

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=GFS+Neohellenic:ital,wght@0,400;0,700;1,400;1,700&family=Mali:ital,wght@1,600&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=GFS+Neohellenic:ital,wght@0,400;0,700;1,400;1,700&family=Mali:ital,wght@1,600&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Cinzel:wght@400;500;600;700;800;900&display=swap");
 
 :root {
   /* Color Palette */
@@ -7,10 +7,13 @@
   --background-color: #fdfbf7;
   --text-color: #333;
   --white: #ffffff;
-  
+
   /* Typography */
   --font-main: "GFS Neohellenic", serif;
-  --font-display: "Maravilla", serif;
+  --font-display: "Cinzel", serif;
+  /* Switched to Cinzel for testing */
+  --font-decorative: "Maravilla", serif;
+  /* Kept Diogenes as decorative option */
   --font-sans: "Roboto", sans-serif;
 }
 
@@ -28,13 +31,13 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-* > a {
+*>a {
   text-decoration: none;
   color: inherit;
   transition: color 0.3s ease;
 }
 
-* > button {
+*>button {
   background: none;
   color: inherit;
   border: none;
@@ -45,7 +48,7 @@ body {
   transition: opacity 0.3s ease;
 }
 
-* > button:hover {
+*>button:hover {
   opacity: 0.8;
 }
 

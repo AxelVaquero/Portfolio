@@ -1,8 +1,23 @@
 .bodyWrapper {
+  width: 100%;
   display: flex;
   justify-content: center;
+  background-color: var(--background-color);
+  min-height: 100vh;
 }
 
 .contentWrapper {
-  width: 80%;
+  width: 100%;
+  max-width: 1400px;
+  /* Increased max-width for a more modern, wide feel */
+  padding: 2rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 768px) {
+  .contentWrapper {
+    padding: 1rem;
+  }
 }

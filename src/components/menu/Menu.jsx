@@ -14,47 +14,49 @@ export default function Menu() {
 
   return (
     <div className="navMenu">
-      <nav className="desktopMenu">
+      <nav className="desktopMenu" aria-label="Main navigation">
         <ul>
-          {menuItems.map((item, index) => {
-            return (
+          {menuItems.map((item, index) => (
+            <li key={index}>
+              <NavLink
+                to={item.path}
+                className={({ isActive, isPending }) =>
+                  isActive ? "active" : isPending ? "pending" : ""
+                }
+              >
+                {item.name}
+              </NavLink>
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      <div className="mobileMenu">
+        <Hamburger
+          toggled={active}
+          toggle={setActive}
+          size={24}
+          color="#593119"
+          label="Show menu"
+        />
+      </div>
+
+      <div className={`mobileHeader ${active ? "open" : "closed"}`}>
+        <nav className="mobileMenuItems" aria-label="Mobile navigation">
+          <ul>
+            {menuItems.map((item, index) => (
               <li key={index}>
                 <NavLink
                   to={item.path}
-                  className={({ isActive, isPending }) =>
-                    isActive ? "active" : isPending ? "pending" : ""
-                  }
+                  className={({ isActive }) => (isActive ? "active" : "")}
+                  onClick={() => setActive(false)}
                 >
                   {item.name}
                 </NavLink>
               </li>
-            );
-          })}
-        </ul>
-      </nav>
-      <div className="mobileMenu">
-        <Hamburger toggled={active} toggle={setActive} size={20} />
-      </div>
-
-      <div className={`mobileHeader ${active ? "open" : "closed"}`}>
-        <div className="mobileMenuItems">
-          <ul>
-            {menuItems.map((item, index) => {
-              return (
-                <li key={index}>
-                  <NavLink
-                    to={item.path}
-                    className={({ isActive, isPending }) =>
-                      isActive ? "active" : isPending ? "pending" : ""
-                    }
-                  >
-                    {item.name}
-                  </NavLink>
-                </li>
-              );
-            })}
+            ))}
           </ul>
-        </div>
+        </nav>
       </div>
     </div>
   );
